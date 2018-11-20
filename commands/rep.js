@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args, sql) => {
 let LUser;
   message.delete(5000);
   let pUser = message.mentions.users.first();
-  if(message.mentions.users.size < 1) return message.channel.send("`#سمعة @user#123`").then(msg => {msg.delete(5000)});
+  if(message.mentions.users.size < 1) return message.channel.send("`wrep @user`").then(msg => {msg.delete(5000)});
   {
   let rows = sql.prepare(`SELECT * FROM profile WHERE UserID = '${pUser.id}'`).get()
   
@@ -31,11 +31,11 @@ let LUser;
           if(args[1] === '-'){
           sqlstr = `UPDATE profile SET rep = ${LUser - 1} WHERE UserID = '${pUser.id}'`;
           sql.prepare(sqlstr).run()
-           return message.reply("تم خفض السمعة").then(msg => {msg.delete(5000)});
+           return message.reply("Rep Is Complete").then(msg => {msg.delete(5000)});
           }else{
             sqlstr = `UPDATE profile SET rep = ${LUser + 1} WHERE UserID = '${pUser.id}'`;
             sql.prepare(sqlstr).run()
-             return message.reply("تم رفع السمعة").then(msg => {msg.delete(5000)});
+             return message.reply("Reo Upload").then(msg => {msg.delete(5000)});
            }
             }
         }else{
@@ -44,7 +44,7 @@ let LUser;
           if(allrep[i].LikedUser === pUser.id){
             if(allrep[i].LikedUser !== pUser.id) continue;
             let timeleft = allrep[i].Time - Date.now()
-            return message.channel.send(`__${prettyMs((timeleft), {verbose: true})}__** من قبل حاول بعد <@${pUser.id}>  تم إعطاء سمعة لـ **`).then(msg => {msg.delete(10000)});
+            return message.channel.send(`__${prettyMs((timeleft), {verbose: true})}__** من قبل حاول بعد <@${pUser.id}>  تم إعطاء rep لـ **`).then(msg => {msg.delete(10000)});
         
         }
           }
@@ -59,11 +59,11 @@ let LUser;
            if(args[1] === '-'){
             sqlstr = `UPDATE profile SET rep = ${LUser - 1} WHERE UserID = '${pUser.id}'`;
             sql.prepare(sqlstr).run()
-             return message.reply("تم خفض السمعة").then(msg => {msg.delete(5000)});
+             return message.reply("Is Save Rep").then(msg => {msg.delete(5000)});
             }else{
               sqlstr = `UPDATE profile SET rep = ${LUser + 1} WHERE UserID = '${pUser.id}'`;
             sql.prepare(sqlstr).run()
-               return message.reply("تم رفع السمعة").then(msg => {msg.delete(5000)});
+               return message.reply("Done").then(msg => {msg.delete(5000)});
              }
           }
             
