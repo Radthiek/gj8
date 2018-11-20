@@ -1,7 +1,6 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const fs = require("fs");
-const bot = new Discord.bot();
 var Jimp = require("jimp");
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./profile.sqlite');
