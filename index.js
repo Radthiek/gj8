@@ -1,4 +1,5 @@
 const botconfig = require("./botconfig.json");
+const bot = new Discord.bot()
 const Discord = require("discord.js");
 const fs = require("fs");
 var Jimp = require("jimp");
