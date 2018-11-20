@@ -158,36 +158,4 @@ let about = sql.prepare(`SELECT * FROM about WHERE UserID = '${message.author.id
 
 
 
-      bot.on('guildMemberAdd', member => {
-        var embed = new Discord.RichEmbed()
-        .setAuthor(member.user.username, member.user.avatarURL)
-        .setThumbnail(member.user.avatarURL)
-        .setTitle(`يا هلا بك :raised_hand::skin-tone-1: :smiley:`)
-        .setDescription(`اهلاً بك في سيرفرنا :blush:`)
-        .addField(' :bust_in_silhouette:  انت رقم',`**[ ${member.guild.memberCount} ]**`,true)
-        .setColor('GREEN')
-        .setFooter('======= Welcome To WordShop=======')
-
-    var channel =member.guild.channels.find('name', 'word')
-    if (!channel) return;
-    channel.send({embed : embed});
-    });
-	
-
-bot.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('discord.gg')){
-      if(!message.member.hasPermission('ADMINISTRATOR'))
-        message.delete()
-    return message.reply(`** No Invite Links :angry: ! **`)
-    }
-});
-
-  bot.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`**Hi ! ** ${member} **Welcome To WordShop !** `) 
-}).catch(console.error)
-})
-
-
-bot.login('NTAyMTQ2MzA2MTMxNjIzOTU2.DtSqQw.ULALn22BmfSiEEqoNEs7G0ywoL4');
+bot.login('NTAyMTQ2MzA2MTMxNjIzOTU2.DtU_0g.frkSunRsQ-3II1xrMU1qBeEtkaI');
